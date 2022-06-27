@@ -1,0 +1,142 @@
+
+
+==========================================================================================
+Übung 1: Grundlagen
+==========================================================================================
+
+a) Erzeugen Sie ein String-Array mit einigen Elementen. Sortieren Sie das Array dann...
+
+- nach Länge (d.h. vom kürzesten zum längsten)
+
+- nach umgekehrter Länge
+
+- alphabetisch (nur der 1.Buchstabe wird berücksichtigt)
+  Hinweis: charAt(0) liefert den numerischen Wert des ersten Buchstabens
+
+- so dass Strings zuerst kommen, die mit "o" beginnen (oder einem anderen Buchstaben),
+  und die anderen Strings kommen danach in beliebiger Reihenfolge.
+
+Lösen Sie die obigen Aufgaben, indem Sie den notwendigen Sortieralgorithmus in einem Lambda ablegen.
+Denken Sie daran, dass Lambdas geschweifte Klammern und ein return-Statement haben dürfen.
+
+b) Lösen Sie die obigen Aufgaben noch einmal, aber nutzen Sie eine statische Hilfsmethode,
+   so dass Ihre Lösung folgendes Muster aufweist:
+
+   Arrays.sort(mystrings, (s1, s2) -> MyHelperClass.myHelperMethod(s1, s2));
+
+   Überlegen Sie dann, wie Sie im letzten Schritt stattdessen Methodenreferenzen verwenden könnten.
+
+------------------------
+Hinweise
+------------------------
+- Die Methode compare() von Comparator sollte
+  - eine negative Zahl zurückliefern, wenn der erste Parameter "weniger" oder "kleiner" ist, als der zweite.
+  - eine positive Zahl zurückliefern, wenn der erste Parameter "mehr" oder "größer" ist, als der zweite.
+  - 0 zurückliefern, wenn sie gleich sind
+
+- Zur Ausgabe des Arrays nach dem Sortieren eignet sich
+
+  System.out.println(Arrays.asList(yourArray))
+
+
+
+==========================================================================================
+Übung 2: Eigene Interfaces zum Einsatz von Lambdas
+==========================================================================================
+
+Ziel dieser Übung ist die Implementierung einer Methode "betterString", die zwei Strings und ein Lambda
+entgegennimmt, wobei das Lambda genutzt wird, um zu entscheiden welcher String der "bessere" ist.
+
+Die Methode soll diesen besseren String zurückliefern, d.h. wenn die vom Lambda implementierte Funktion den
+Wert "true" ergibt, dann soll betterString den ersten String als Ergebnis zurückliefern, andernfalls den zweiten.
+
+Die folgenden zwei Beispiele demonstrieren, wie der Code funktionieren soll. Das erste Beispiel liefert
+zurück, welcher der beiden Strings länger ist, das zweite Beispiel liefert immer den ersten String zurück:
+
+String string1 = ...;
+String string2 = ...;
+
+String longer = MyStringUtils.betterString(string1, string2, (s1, s2) -> s1.length() > s2.length());
+String first = MyStringUtils.betterString(string1, string2, (s1, s2) -> true);
+
+
+Zur Lösung dieser Aufgabe sind drei Dinge erforderlich:
+
+- Definieren Sie ein Interface "TwoStringPredicate". Es spezifiziert eine Methode, die zwei Strings als Parameter
+  entgegennimmt und ein boolean zurückliefert.
+
+- Definieren Sie die statische Methode "betterString". Diese Methode erwartet als Parameter zwei Strings und
+  eine Instanz Ihres Interfaces "TwoStringPredicate". Sie liefert den ersten String zurück, wenn die Methode
+  im Interface den Wert "true" liefert, oder anderenfalls den zweiten String.
+
+- Aufruf von "betterString" mit Lambdas wie im Beispiel oben.
+
+
+==========================================================================================
+Übung 3: Generische Interfaces zum Einsatz mit Lambdas
+==========================================================================================
+
+Verwenden Sie Generics, um Ihre String-spezifischen Lösungen aus Übung 2 mit einer generischen Lösung zu ersetzen.
+Das heißt, ersetzen Sie "betterString" durch "betterElement" und "TwoStringPredicate" durch "TwoElementPredicate".
+Stellen Sie sicher, dass sie vorherigen Lösungen nach der Umstellung auf Generics noch funktionieren.
+
+Aber nun sollten Sie auch 2 Autos, 2 Bücher oder 2 Firmen mit einem entsprechenden Predicate vergleichen können etc.
+
+Zum Beispiel:
+
+String longerString = MyUtils.betterElement(string1, string2, (s1, s2) -> s1.length() > s2.length());
+Car cheaperCar = MyUtils.betterElement(polo, golf, (c1, c2) -> c1.price < c2.price);
+Person betterPaid = MyUtils.betterElement(employee1, employee2, (e1, e2) -> e1.getSalary() > e2.getSalary())
+
+==========================================================================================
+Übung 4: Functional Interface
+==========================================================================================
+
+Fügen Sie Ihren beiden Interfaces "TwoStringPredicate" und "TwoElementPredicate" die Annotation
+@FunctionalInterface hinzu. Ändert sich dadurch das Verhalten Ihres Codes? Was passiert, wenn Sie
+versuchen "TwoStringPredicate" eine zweite abstrakte Methode hinzu zu fügen?
+
+==========================================================================================
+Übung 5: Mehr zu Predicates
+==========================================================================================
+
+a)
+Erzeugen Sie eine statische Methode namens "allMatches". Sie soll als Parameter eine List<String>
+und ein Predicate<String> entgegen nehmen. Ihr Rückgabewert soll eine neue Liste sein, welche alle
+Element der ursprünglichen Liste enthält, die den Test bestehen.
+
+Testen Sie Ihre Lösung mit unterschiedlichen Beispielen:
+
+List<String> shortWords = MyUtils.allMatches(words, s -> s.length() < 4);
+List<String> wordsWithB = MyUtils.allMatches(words, s -> s.contains("b"));
+List<String> evenLengthWords = MyUtils.allMatches(words, s -> (s.length() % 2) == 0);
+
+
+b)
+Verbessern Sie Ihre Methode "allMatches" nun so, dass sie Listen beliebiger Objekte und ein
+entsprechedes Predicate entgegen nehmen kann. Die Beispiele aus a) sollten weiterhin funktionieren,
+aber nun können Sie auch folgendes machen:
+
+List<Integer> nums = Arrays.asList(1, 10, 100, 1000, 10000);
+List<Integer> bigNums = MyUtils.allMatches(nums, n -> n>500);
+
+
+c)
+Schreiben Sie eine statische Method namens "transformedList". Diese soll eine List<String> und eine
+Function<String,String> entgegen nehmen. Als Rückgabewert soll die Methode eine neue List zurück geben,
+welche die Resultate der Funktion angewandt auf die jeweiligen Element der ursprünglichen Liste enthält.
+
+Beispiel:
+List<String> highlightedWords = MyUtils.transformedList(words, s -> "*" + s + "*");
+List<String> upperCaseWords = MyUtils.transformedList(words, String::toUpperCase)
+
+
+d)
+Verbessern Sie Ihre Methode "transformedList" nun so, dass sie generische Typen verwendet. Die Beispiele
+aus c) sollten weiterhin funktionieren, aber nun können Sie auch folgendes machen:
+
+List<Integer> wordLengths = MyUtils.transformedList(words, String::length);
+
+In obigem Beispiel wird eine List<String> als Parameter übergeben, aber eine List<Integer> zurückgeliefert.
+Stellen Sie sicher, dass Ihre generische Lösung dies unterstützt.
+

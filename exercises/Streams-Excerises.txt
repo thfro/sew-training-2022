@@ -1,0 +1,48 @@
+
+==========================================================================================
+Übung 1: Streams kreuz und quer
+==========================================================================================
+
+In dieser Übung werden die unterschiedlichsten Arten der Stream-Operationen trainiert.
+Als Datenquelle dienen uns die Dateien bzw. Dateinamen in einem beliebigen Verzeichnis.
+Verwenden Sie zur Sicherheit vielleicht ihr tmp-Verzeichnis.
+
+Mit folgenden Zeilen erhalten sie die Namen sämtlicher Dateien *und* Verzeichnisse
+innerhalb Ihres Quellverzeichnisses:
+
+File myFolder = new File("/tmp");
+File[] myFiles = myFolder.listFiles();
+
+Finden Sie als Erstes heraus, wie Sie aus dem Array "myFiles" einen Stream<File> erzeugen können.
+
+Erzeugen Sie dann einen solchen Stream immer wieder, um die folgenden Aufgaben zu erfüllen.
+Geben Sie die jeweligen Ergebnisse zur Kontrolle auf der Konsole aus.
+
+a) Sammeln Sie alle Dateien (jedoch keine Verzeichnisse) in einer Liste, welche größer sind als 1000 Byte
+   und deren Dateiname mit dem Buchstaben "t" (oder ein anderer) beginnt.
+
+b) Erzeugen Sie eine Map<String, Long> in welcher die Dateinamen als Schlüssel dienen und die Dateigrößen als Wert.
+
+c) Erzeugen Sie eine Map<Boolean, List<String>, in der die Dateinamen nach Ausführbarkeit sortiert sind.
+   Die Liste zum Schlüsselwert "true" soll demnach die Dateinamen aller ausführbaren Dateien enthalten (File::canExecute),
+   die Liste zum Schlüsselwert "false" entsprechend Dateinamen der nicht ausführbaren Dateien.
+
+d) Erzeugen Sie eine Map<Character, List<String>, in der die Dateinamen nach Anfangsbuchstaben sortiert sind.
+   Die Liste zum Schlüssel "a" soll folglich alle Dateinamen enthalten, welche mit "a" beginnen etc.
+
+e) Erzeugen Sie mithilfe des Stream<File> eine boolean Variable, welche aussagt ob eine Datei existiert,
+   deren Dateiname mit dem Buchstaben 't' beginnt (oder mit einem beliebigen anderen Buchstaben).
+
+f) Erzeugen Sie mithilfe des Stream<File> eine long Variable, welche anzeigt wie viele Dateien existieren,
+   deren Dateiname mit dem Buchstaben 't' beginnt (oder mit einem beliebigen anderen Buchstaben).
+
+g) Führen Sie für jede dieser Dateien eine bestimmte Operation aus, bspw. die Ausgabe ihrer Dateigröße.
+
+h) Erzeugen Sie mithilfe des Stream<File> eine long Variable, welche die Summe aller Dateigrößen der Dateien enthält,
+   deren Dateiname mit dem Buchstaben 't' beginnt (oder mit einem beliebigen anderen Buchstaben).
+
+i) Erzeugen Sie mithilfe des Stream<File> eine long Variable, welche die kleinste aller Dateigrößen der Dateien enthält,
+   deren Dateiname mit dem Buchstaben 't' beginnt (oder mit einem beliebigen anderen Buchstaben).
+
+j) Erzeugen Sie mithilfe des Stream<File> eine long Variable, welche die größte aller Dateigrößen der Dateien entält,
+   deren Dateiname mit dem Buchstaben 't' beginnt (oder mit einem beliebigen anderen Buchstaben).
