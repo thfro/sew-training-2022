@@ -1,0 +1,28 @@
+
+==========================================================================================
+Übung 1: Grundlagen
+==========================================================================================
+
+- Erzeugen Sie eine Record-Klasse namens "Student" mit den folgenden Attributen
+  - id (Integer)
+  - name (String)
+  - age (Integer)
+
+- Schreiben Sie eine Test-Methode, die mehrere Studenten erzeugt und geben Sie jeweils
+  deren Details aus. Hierzu gibt es mehrere Möglichkeiten - welche?
+
+- Überschreiben Sie den Konstruktor Ihrer Record-Klasse mit einem eigenen Konstruktor,
+  der eine RuntimeException wirft, falls ein negatives Alter übergeben wird.
+
+- Fügen Sie der Record-Klasse eine Instanz-Methode hinzu, welche den Namen von Studenten
+  in Großbuchstaben zurückliefert.
+
+- Kann das Alter eines Studenten nachträglich geändert werden?
+
+- Erweitern Sie Ihre Record-Klasse so, dass sie das Interface Comparable implementiert
+  und programmieren Sie die Methode compareTo, so dass Studenten anhand Ihres Namens
+  sortierbar sind.
+
+- Finden Sie heraus, ob Records
+  - von anderen Klassen oder Records abgeleitet werden können
+  - statische Methoden haben können
