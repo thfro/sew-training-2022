@@ -1,0 +1,13 @@
+
+==========================================================================================
+Übung 1: Grundlagen
+==========================================================================================
+
+- Erzeugen Sie einen Text-Block mit mehreren Zeilen Text und geben Sie diesen an der Konsole aus.
+
+- Experimentieren Sie mit Einrückungen und Zeilenumbrüchen.
+
+- Fügen Sie eine Zeile in Ihren Textblock ein, die Anführungszeichen verwendet.
+
+- Fügen Sie Platzhalter in den Textblock ein (%s) und belegen Sie diese mittels der Methode formatted(...) mit Werten.
+
