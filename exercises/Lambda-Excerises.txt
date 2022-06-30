@@ -114,7 +114,7 @@ List<String> evenLengthWords = MyUtils.allMatches(words, s -> (s.length() % 2) =
 
 b)
 Verbessern Sie Ihre Methode "allMatches" nun so, dass sie Listen beliebiger Objekte und ein
-entsprechedes Predicate entgegen nehmen kann. Die Beispiele aus a) sollten weiterhin funktionieren,
+entsprechendes Predicate entgegennehmen kann. Die Beispiele aus a) sollten weiterhin funktionieren,
 aber nun können Sie auch folgendes machen:
 
 List<Integer> nums = Arrays.asList(1, 10, 100, 1000, 10000);
@@ -123,8 +123,8 @@ List<Integer> bigNums = MyUtils.allMatches(nums, n -> n>500);
 
 c)
 Schreiben Sie eine statische Method namens "transformedList". Diese soll eine List<String> und eine
-Function<String,String> entgegen nehmen. Als Rückgabewert soll die Methode eine neue List zurück geben,
-welche die Resultate der Funktion angewandt auf die jeweiligen Element der ursprünglichen Liste enthält.
+Function<String, String> entgegennehmen. Als Rückgabewert soll die Methode eine neue List zurückgeben,
+welche die Resultate der Funktion angewandt auf die jeweiligen Elemente der ursprünglichen Liste enthält.
 
 Beispiel:
 List<String> highlightedWords = MyUtils.transformedList(words, s -> "*" + s + "*");

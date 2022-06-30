@@ -16,7 +16,7 @@ File[] myFiles = myFolder.listFiles();
 Finden Sie als Erstes heraus, wie Sie aus dem Array "myFiles" einen Stream<File> erzeugen können.
 
 Erzeugen Sie dann einen solchen Stream immer wieder, um die folgenden Aufgaben zu erfüllen.
-Geben Sie die jeweligen Ergebnisse zur Kontrolle auf der Konsole aus.
+Geben Sie die jeweiligen Ergebnisse zur Kontrolle auf der Konsole aus.
 
 a) Sammeln Sie alle Dateien (jedoch keine Verzeichnisse) in einer Liste, welche größer sind als 1000 Byte
    und deren Dateiname mit dem Buchstaben "t" (oder ein anderer) beginnt.

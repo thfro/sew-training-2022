@@ -20,7 +20,7 @@
 - Kann das Alter eines Studenten nachträglich geändert werden?
 
 - Erweitern Sie Ihre Record-Klasse so, dass sie das Interface Comparable implementiert
-  und programmieren Sie die Methode compareTo, so dass Studenten anhand Ihres Namens
+  und programmieren Sie die Methode compareTo, sodass Studenten anhand Ihres Namens
   sortierbar sind.
 
 - Finden Sie heraus, ob Records
