@@ -94,7 +94,7 @@ Person betterPaid = MyUtils.betterElement(employee1, employee2, (e1, e2) -> e1.g
 
 Fügen Sie Ihren beiden Interfaces "TwoStringPredicate" und "TwoElementPredicate" die Annotation
 @FunctionalInterface hinzu. Ändert sich dadurch das Verhalten Ihres Codes? Was passiert, wenn Sie
-versuchen "TwoStringPredicate" eine zweite abstrakte Methode hinzu zu fügen?
+versuchen "TwoStringPredicate" eine zweite abstrakte Methode hinzuzufügen?
 
 ==========================================================================================
 Übung 5: Mehr zu Predicates
